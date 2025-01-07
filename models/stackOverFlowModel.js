@@ -1,4 +1,4 @@
-import mongoose from 'mongooose';
+import mongoose from 'mongoose';
 
 const stackOverFlowSchema = new mongoose.Schema({  
 
@@ -43,7 +43,7 @@ const stackOverFlowSchema = new mongoose.Schema({
 
     last_edit_date : {
         type: Number,
-        required: true
+        required: false
     },
 
     question_id : {
@@ -53,16 +53,18 @@ const stackOverFlowSchema = new mongoose.Schema({
 
     content_license : {
         type: String,
-        required: true
+        required: false
     },
 
     link : {
         type: String,
+        unique: true,
         required: true
     },
 
     title : {
         type: String,
+        unique: true,
         required: true
     }
 
