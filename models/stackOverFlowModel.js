@@ -48,6 +48,7 @@ const stackOverFlowSchema = new mongoose.Schema({
 
     question_id : {
         type: Number,
+        unique: true,
         required: true
     },
 
