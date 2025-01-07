@@ -7,6 +7,8 @@ dotenv.config()
 
 const app = express()
 
+app.use(express.json(), express.urlencoded({ extended: true }))
+
 app.get('/', (req, res) => {
     res.send('Backend is up.')
 })
