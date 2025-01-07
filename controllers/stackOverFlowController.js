@@ -115,6 +115,10 @@ const getStackOverFlowQuestions = async (req, res) => {
 
 const updateStackOverFlowQuestion = async (req, res) => {
   try {
+    const id = req.params.id;
+    if(!id) {
+        return res.status(400).json({message: "Invalid Request, need an ID"});
+    }
     res.send("Update Question");
   } catch (error) {
     console.error(`Error: ${error.message}`);
@@ -123,9 +127,20 @@ const updateStackOverFlowQuestion = async (req, res) => {
 
 const deleteStackOverFlowQuestion = async (req, res) => {
   try {
-    res.send("Delete Question");
+    const _id = req.params.id;
+    if(!_id) {
+        return res.status(400).json({message: "Invalid Request, need an ID"});
+    }
+    const stackOverFlowQuestion = await stackOverFlow.findByIdAndDelete(_id);
+    if(!stackOverFlowQuestion) {
+        return res.status(404).json({message: "Question not found"});
+    }
+    res.json({message: "Question Deleted Successfully"});
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    let handleError = error.message.split(":")[0];
+    if(handleError.includes("98343")) {
+        return res.status(404).json({message: "Question not found"});
+    }
   }
 };
 
