@@ -36,5 +36,31 @@ const getStackOverFlowData = async (req, res) => {
 };
 
 
+const getStackOverFlowQuestions = async (req, res) => {
+    try {
+        res.send("Questions");
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+        
+    }
+}
 
-export default { getStackOverFlowData };
+const updateStackOverFlowQuestion = async (req, res) => {
+    try {
+        res.send("Update Question");
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+        
+    }
+}
+
+const deleteStackOverFlowQuestion = async (req, res) => {
+    try {
+        res.send("Delete Question");
+    } catch (error) {
+        console.error(`Error: ${error.message}`);
+        
+    }
+}
+
+export default { getStackOverFlowData, getStackOverFlowQuestions, updateStackOverFlowQuestion, deleteStackOverFlowQuestion };
