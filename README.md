@@ -52,8 +52,7 @@ GET http://localhost:5000/api/stackOverFlow/questions?is_answered=true&answers_c
 This endpoint updates an existing question based on the ID provided. The request should include the fields you want to update (e.g., `title`, `tags`, etc.). If the ID is invalid or the fields are missing, an error will be returned.
 
 Example:
-```yaml
-GET http://localhost:5000/api/stackOverFlow/questions?is_answered=true&answers_count__gt=5&answers_count__lt=10&sort=score&page=1
+
 ```yaml
 PUT http://localhost:5000/api/stackOverFlow/questions/:id { "title": "Updated Title", "tags": ["javascript", "node.js"] }
 ```
